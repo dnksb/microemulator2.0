@@ -1,6 +1,9 @@
 #include "programmingmode.h"
 
-void ProgrammingMode::one() {}
+void ProgrammingMode::one()
+{
+
+}
 void ProgrammingMode::two() {}
 void ProgrammingMode::three() {}
 void ProgrammingMode::four() {}
