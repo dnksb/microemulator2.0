@@ -12,13 +12,13 @@ private:
 public:
     DefaultMode(Emulator* _emulator) : emulator(_emulator) {}
     void one() override ;
-    void two() override ; //dfsdfvbdgsdv
+    void two() override ;
     void three() override ;
     void four() override ;
     void five() override ;
     void six() override ;
     void seven() override ;
-    void eigth() override ;//[eq
+    void eigth() override ;
     void nine() override ;
     void zero() override ;
     void change() override ;
