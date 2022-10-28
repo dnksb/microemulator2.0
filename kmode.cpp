@@ -1,0 +1,30 @@
+#include "kmode.h"
+
+void KMode::one() {}
+void KMode::two() {}
+void KMode::three() {}
+void KMode::four() {}
+void KMode::five() {}
+void KMode::six() {}
+void KMode::seven() {}
+void KMode::eigth() {}
+void KMode::nine() {}
+void KMode::zero() {}
+void KMode::change() {}
+void KMode::push() {}
+void KMode::plus() {}
+void KMode::mines() {}
+void KMode::div() {}
+void KMode::mul() {}
+void KMode::VP_1() {}
+void KMode::VP_2() {}
+void KMode::CX() {}
+void KMode::PP() {}
+void KMode::x_to_mem() {}
+void KMode::mem_to_x() {}
+void KMode::dot() {}
+void KMode::XZ() {}
+void KMode::r() {}
+void KMode::l() {}
+void KMode::BO() {}
+void KMode::SP() {}

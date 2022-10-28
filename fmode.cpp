@@ -1,0 +1,30 @@
+#include "fmode.h"
+
+void FMode::one() {}
+void FMode::two() {}
+void FMode::three() {}
+void FMode::four() {}
+void FMode::five() {}
+void FMode::six() {}
+void FMode::seven() {}
+void FMode::eigth() {}
+void FMode::nine() {}
+void FMode::zero() {}
+void FMode::change() {}
+void FMode::push() {}
+void FMode::plus() {}
+void FMode::mines() {}
+void FMode::div() {}
+void FMode::mul() {}
+void FMode::VP_1() {}
+void FMode::VP_2() {}
+void FMode::CX() {}
+void FMode::PP() {}
+void FMode::x_to_mem() {}
+void FMode::mem_to_x() {}
+void FMode::dot() {}
+void FMode::XZ() {}
+void FMode::r() {}
+void FMode::l() {}
+void FMode::BO() {}
+void FMode::SP() {}
