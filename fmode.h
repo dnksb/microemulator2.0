@@ -3,6 +3,7 @@
 
 #include "editmodes.h"
 #include <QMainWindow>
+//#include <math.h>
 
 class FMode : public Mode
 {

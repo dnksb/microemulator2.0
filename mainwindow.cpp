@@ -89,7 +89,6 @@ void MainWindow::on_Button0_clicked()
 }
 void MainWindow::on_Button1_clicked()
 {
-    std::cout << "1" << std::endl;
     multipult->Button1_clicked(emulator->choise_mode());
 }
 void MainWindow::on_Button2_clicked()
