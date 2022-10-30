@@ -32,8 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->Button7, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->Button8, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->Button9, SIGNAL(clicked()), this, SLOT(update_screen()));
-    connect(ui->ButtonF, SIGNAL(clicked()), this, SLOT(update_screen()));
-    connect(ui->ButtonK, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonCX, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonXZ, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonPP, SIGNAL(clicked()), this, SLOT(update_screen()));
@@ -81,6 +79,8 @@ void MainWindow::update_screen()
     ui->Lable_Register_Y->setText("Y = " + emulator->get_register_Y());
     ui->Lable_Register_X->setText("X = " + emulator->get_register_X());
     ui->label->setText(emulator->get_register_X());
+    this->emulator->set_f_mode(false);
+    this->emulator->set_k_mode(false);
 }
 
 void MainWindow::on_Button0_clicked()
@@ -125,11 +125,13 @@ void MainWindow::on_Button9_clicked()
 }
 void MainWindow::on_ButtonK_clicked()
 {
-    multipult->ButtonK_clicked(emulator->choise_mode());
+    this->emulator->set_k_mode(true);
+    this->emulator->set_f_mode(false);
 }
 void MainWindow::on_ButtonF_clicked()
 {
-    multipult->ButtonF_clicked(emulator->choise_mode());
+    this->emulator->set_f_mode(true);
+    this->emulator->set_k_mode(false);
 }
 void MainWindow::on_Button_r_clicked()
 {
