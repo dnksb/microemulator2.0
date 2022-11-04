@@ -1,11 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "fmode.h"
-#include "kmode.h"
-#include "programmingmode.h"
-#include "readmode.h"
-#include "writemode.h"
-#include "defaultmode.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -50,6 +44,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->ButtonChangeXY, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonDivition, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonMultiplu, SIGNAL(clicked()), this, SLOT(update_screen()));
+    connect(ui->action_10, SIGNAL(triggered()), this, SLOT(update_screen()));
+    connect(ui->action_10, SIGNAL(triggered()), this, SLOT(this->db->signIn(this->user_name, this->user_password)));
 }
 
 MainWindow::~MainWindow()
@@ -204,5 +200,20 @@ void MainWindow::on_ButtonCX_clicked()
 void MainWindow::on_ButtonBP_1_clicked()
 {
     multipult->ButtonBP_1_clicked(emulator->choise_mode());
+}
+
+void MainWindow::on_action_10_triggered()
+{
+    this->user_password = "";
+    this->user_name = "";
+    this->window = new DialogSignIn(this);
+    this->window->show();
+    this->user_password = window->password;
+    this->user_name = window->login;
+}
+
+void MainWindow::on_action_9_triggered()
+{
+
 }
 

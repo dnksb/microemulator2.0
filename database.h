@@ -2,18 +2,22 @@
 #define DATABASE_H
 
 #include <QtSql>
+#include <QDialog>
 #include <QMainWindow>
+#include <QMessageBox>
 
-class DataBase
+class DataBase : public QDialog
 {
 private:
     QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlTableModel * model;
 public:
-    explicit DataBase(QString name);
-    bool signIn(QString name, QString password);
+    DataBase(QString name, QWidget *parent = nullptr);
+    void signIn(QString name, QString password);
     bool logIn(QString name, QString password);
     bool writeCode(QString code[]);
-    void loadCode(QString* code);
+    void loadCode(QString& code);
+    ~DataBase();
 };
 
 #endif // DATABASE_H

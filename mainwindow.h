@@ -4,6 +4,18 @@
 #include <QMainWindow>
 #include <iostream>
 #include "editmodes.h"
+#include <QSqlDatabase>
+#include <QSqlTableModel>
+#include <QSqlQuery>
+#include <QMessageBox>
+#include "fmode.h"
+#include "kmode.h"
+#include "programmingmode.h"
+#include "readmode.h"
+#include "writemode.h"
+#include "defaultmode.h"
+#include "dialogsignin.h"
+#include "database.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,6 +30,14 @@ public:
 private:
     Emulator* emulator;
     Multipult* multipult;
+
+    DataBase* db;
+
+    DialogSignIn *window;
+
+    int user_id;
+    QString user_name = "";
+    QString user_password = "";
 private slots:
     void update_screen();
     void on_Button0_clicked();
@@ -50,6 +70,8 @@ private slots:
     void on_ButtonStackUp_clicked();
     void on_ButtonCX_clicked();
     void on_ButtonBP_1_clicked();
+    void on_action_10_triggered();
+    void on_action_9_triggered();
 private:
     Ui::MainWindow *ui;
 };

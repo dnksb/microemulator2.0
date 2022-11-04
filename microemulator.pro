@@ -11,6 +11,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ../build-microemulator-Desktop-Debug/dialogsignin.cpp \
     database.cpp \
     defaultmode.cpp \
     editmodes.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     writemode.cpp
 
 HEADERS += \
+    ../build-microemulator-Desktop-Debug/dialogsignin.h \
     database.h \
     defaultmode.h \
     editmodes.h \
@@ -34,6 +36,7 @@ HEADERS += \
     writemode.h
 
 FORMS += \
+    ../build-microemulator-Desktop-Debug/dialogsignin.ui \
     mainwindow.ui
 
 # Default rules for deployment.
