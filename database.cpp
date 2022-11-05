@@ -1,20 +1,18 @@
 #include "database.h"
 
 
-DataBase::DataBase(QString name, QWidget *parent):
+DataBase::DataBase(QWidget *parent):
     QDialog(parent)
 {
-    this->sdb.setDatabaseName(name);
-    this->model = new QSqlTableModel(this, sdb);
-    this->model->setTable("users");
 }
 
 void DataBase::signIn(QString name, QString password)
 {
-
-    if(name == "" && password == "")
+    this->login = name;
+    this->password = password;
+    if(name == "" || password == "")
     {
-        QMessageBox::information(this,"error","don't input login or password",QMessageBox::Ok);
+        QMessageBox::information(this,"ошибка","логин или пароль не введен",QMessageBox::Ok);
         return;
     }
     else
@@ -25,10 +23,11 @@ void DataBase::signIn(QString name, QString password)
 
 bool DataBase::logIn(QString name, QString password)
 {
-
-    if(name == "" && password == "")
+    this->login = name;
+    this->password = password;
+    if(name == "" || password == "")
     {
-        QMessageBox::information(this,"error","don't input login or password",QMessageBox::Ok);
+        QMessageBox::information(this,"ошибка","логин или пароль не введен",QMessageBox::Ok);
         return false;
     }
     else
@@ -39,7 +38,7 @@ bool DataBase::logIn(QString name, QString password)
 
 bool DataBase::writeCode(QString code[])
 {
-
+    return false;
 }
 
 void DataBase::loadCode(QString &code)

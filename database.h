@@ -9,10 +9,11 @@
 class DataBase : public QDialog
 {
 private:
-    QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
-    QSqlTableModel * model;
+    QString login = "";
+    QString password = "";
+    int user_id;
 public:
-    DataBase(QString name, QWidget *parent = nullptr);
+    explicit DataBase(QWidget *parent = nullptr);
     void signIn(QString name, QString password);
     bool logIn(QString name, QString password);
     bool writeCode(QString code[]);

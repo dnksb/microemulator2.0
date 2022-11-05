@@ -15,6 +15,7 @@
 #include "writemode.h"
 #include "defaultmode.h"
 #include "dialogsignin.h"
+#include "dialoglogin.h"
 #include "database.h"
 
 QT_BEGIN_NAMESPACE
@@ -33,11 +34,12 @@ private:
 
     DataBase* db;
 
-    DialogSignIn *window;
+    DialogSignIn *windowSignIn;
+    DialogLogIn *windowLogIn;
 
     int user_id;
-    QString user_name = "";
-    QString user_password = "";
+    //QString user_name = "";
+    //QString user_password = "";
 private slots:
     void update_screen();
     void on_Button0_clicked();
@@ -72,6 +74,10 @@ private slots:
     void on_ButtonBP_1_clicked();
     void on_action_10_triggered();
     void on_action_9_triggered();
+    void on_action_11_triggered();
+
+    void on_action_12_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

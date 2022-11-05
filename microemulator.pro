@@ -14,6 +14,7 @@ SOURCES += \
     ../build-microemulator-Desktop-Debug/dialogsignin.cpp \
     database.cpp \
     defaultmode.cpp \
+    dialoglogin.cpp \
     editmodes.cpp \
     fmode.cpp \
     kmode.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     ../build-microemulator-Desktop-Debug/dialogsignin.h \
     database.h \
     defaultmode.h \
+    dialoglogin.h \
     editmodes.h \
     fmode.h \
     kmode.h \
@@ -37,6 +39,7 @@ HEADERS += \
 
 FORMS += \
     ../build-microemulator-Desktop-Debug/dialogsignin.ui \
+    dialoglogin.ui \
     mainwindow.ui
 
 # Default rules for deployment.

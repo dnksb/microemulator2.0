@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     multipult->set_command(4, new ReadMode(emulator));
     multipult->set_command(5, new DefaultMode(emulator));
 
+    db = new DataBase();
+
     connect(ui->Button0, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->Button1, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->Button2, SIGNAL(clicked()), this, SLOT(update_screen()));
@@ -44,8 +46,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->ButtonChangeXY, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonDivition, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->ButtonMultiplu, SIGNAL(clicked()), this, SLOT(update_screen()));
-    connect(ui->action_10, SIGNAL(triggered()), this, SLOT(update_screen()));
-    connect(ui->action_10, SIGNAL(triggered()), this, SLOT(this->db->signIn(this->user_name, this->user_password)));
 }
 
 MainWindow::~MainWindow()
@@ -204,16 +204,29 @@ void MainWindow::on_ButtonBP_1_clicked()
 
 void MainWindow::on_action_10_triggered()
 {
-    this->user_password = "";
-    this->user_name = "";
-    this->window = new DialogSignIn(this);
-    this->window->show();
-    this->user_password = window->password;
-    this->user_name = window->login;
+    //this->user_password = "";
+    //this->user_name = "";
+    this->windowLogIn = new DialogLogIn(db, this);
+    this->windowLogIn->show();
+    //this->user_password = window->password;
+    //this->user_name = window->login;
 }
 
 void MainWindow::on_action_9_triggered()
 {
+    this->windowSignIn = new DialogSignIn(db, this);
+    this->windowSignIn->show();
+}
 
+
+void MainWindow::on_action_11_triggered()
+{
+    //this->db->writeCode();
+}
+
+
+void MainWindow::on_action_12_triggered()
+{
+    //this->db->loadCode();
 }
 
