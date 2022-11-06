@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     multipult->set_command(5, new DefaultMode(emulator));
 
     db = new DataBase();
+    db->createUsersTable();
 
     connect(ui->Button0, SIGNAL(clicked()), this, SLOT(update_screen()));
     connect(ui->Button1, SIGNAL(clicked()), this, SLOT(update_screen()));
