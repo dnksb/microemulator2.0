@@ -37,6 +37,8 @@ private:
     DialogSignIn *windowSignIn;
     DialogLogIn *windowLogIn;
 
+    QString code[105];
+
     int user_id;
     //QString user_name = "";
     //QString user_password = "";

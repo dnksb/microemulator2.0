@@ -22,10 +22,11 @@ private:
 public:
     explicit DataBase(QWidget *parent = nullptr);
     bool createUsersTable();
+    bool createCodeTable();
     bool signIn(QString name, QString password);
     bool logIn(QString name, QString password);
     bool writeCode(QString code[]);
-    void loadCode(QString& code);
+    void loadCode(QString& code, int id);
     ~DataBase();
 };
 

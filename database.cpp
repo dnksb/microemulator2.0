@@ -33,6 +33,27 @@ bool DataBase::createUsersTable()
     return success;
 }
 
+bool DataBase::createCodeTable()
+{
+    bool success = true;
+    QSqlQuery query;
+    if(this->login.isEmpty())
+    {
+        QMessageBox::information(this, "ошибка", "в не авторизированы", QMessageBox::Ok);
+    }
+    query.prepare("CREATE TABLE " + this->login + "("
+                  "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                  "code TEXT);");
+
+    if (!query.exec())
+    {
+        qDebug() << "Music list table already created ";
+        success = false;
+    }
+
+    return success;
+}
+
 bool DataBase::signIn(QString name, QString password)
 {
     this->login = name;
@@ -126,14 +147,41 @@ bool DataBase::logIn(QString name, QString password)
     return success;
 }
 
-bool DataBase::writeCode(QString code[])
+bool DataBase::writeCode(QString code[105])
 {
-    return false;
+    bool success = true;
+
+    this->createCodeTable();
+
+    QString str = "";
+
+    for (int i = 0; i < 105; i++) {
+        str += code[i] + ";";
+    }
+
+    QSqlQuery queryAdd;
+    queryAdd.prepare("INSERT INTO " + this->login + " (id,code) VALUES (:id,:code)");
+    queryAdd.bindValue(":code", str);
+
+    if(!queryAdd.exec())
+    {
+        qDebug() << "record could not add: " << queryAdd.lastError();
+        QMessageBox::information(this, "ошибка", "что-то пошло не так", QMessageBox::Ok);
+        success = false;
+    }
+    return success;
 }
 
-void DataBase::loadCode(QString &code)
+void DataBase::loadCode(QString &code, int id)
 {
+    if(this->createCodeTable())
+    {
+        QMessageBox::information(this, "ошибка", "у вас нет записей", QMessageBox::Ok);
+    }
+    else
+    {
 
+    }
 }
 
 DataBase::~DataBase()

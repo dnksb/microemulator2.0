@@ -222,7 +222,9 @@ void MainWindow::on_action_9_triggered()
 
 void MainWindow::on_action_11_triggered()
 {
-    //this->db->writeCode();
+    code[0] = "hello";
+    code[1] = "world";
+    this->db->writeCode(this->code);
 }
 
 
