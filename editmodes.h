@@ -59,6 +59,8 @@ private:
     QString Register_T = "0";
     QString Register_Y = "0";
     QString Register_X = "";
+    QString code[200];
+    int code_pointer = 0;
     bool f_mode = false;
     bool k_mode = false;
     bool programming_mode = false;
@@ -89,6 +91,9 @@ public:
     QString get_register_Z();
     QString get_register_Y();
     QString get_register_X();
+    QString* get_code();
+    QString get_command();
+    int get_code_pointer();
     bool get_programming_mode();
     void set_f_mode (bool value);
     void set_k_mode (bool value);
@@ -114,6 +119,8 @@ public:
     void set_register_Y (QString value);
     void set_register_X (QString value);
     void set_programming_mode (bool value);
+    void set_code_pointer(int value);
+    void add_command(QString value);
     void add_to_register_x(QString value);
 };
 

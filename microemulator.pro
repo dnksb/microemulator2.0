@@ -22,6 +22,7 @@ SOURCES += \
     mainwindow.cpp \
     programmingmode.cpp \
     readmode.cpp \
+    savecode.cpp \
     writemode.cpp
 
 HEADERS += \
@@ -35,12 +36,14 @@ HEADERS += \
     mainwindow.h \
     programmingmode.h \
     readmode.h \
+    savecode.h \
     writemode.h
 
 FORMS += \
     ../build-microemulator-Desktop-Debug/dialogsignin.ui \
     dialoglogin.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    savecode.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

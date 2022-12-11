@@ -122,13 +122,27 @@ void MainWindow::on_Button9_clicked()
 }
 void MainWindow::on_ButtonK_clicked()
 {
-    this->emulator->set_k_mode(true);
-    this->emulator->set_f_mode(false);
+    if(this->emulator->get_programming_mode())
+    {
+        this->emulator->add_command("K");
+    }
+    else
+    {
+        this->emulator->set_k_mode(true);
+        this->emulator->set_f_mode(false);
+    }
 }
 void MainWindow::on_ButtonF_clicked()
 {
-    this->emulator->set_f_mode(true);
-    this->emulator->set_k_mode(false);
+    if(this->emulator->get_programming_mode())
+    {
+        this->emulator->add_command("F");
+    }
+    else
+    {
+        this->emulator->set_k_mode(false);
+        this->emulator->set_f_mode(true);
+    }
 }
 void MainWindow::on_Button_r_clicked()
 {
@@ -156,7 +170,14 @@ void MainWindow::on_ButtonXInMem_clicked()
 }
 void MainWindow::on_ButtonXZ_clicked()
 {
-    multipult->ButtonXZ_clicked(emulator->choise_mode());
+    if(this->emulator->get_code()[this->emulator->get_code_pointer()] == "F")
+    {
+        this->emulator->set_programming_mode(false);
+    }
+    else
+    {
+        multipult->ButtonXZ_clicked(emulator->choise_mode());
+    }
 }
 void MainWindow::on_ButtonMines_clicked()
 {
@@ -222,9 +243,7 @@ void MainWindow::on_action_9_triggered()
 
 void MainWindow::on_action_11_triggered()
 {
-    code[0] = "hello";
-    code[1] = "world";
-    this->db->writeCode(this->code);
+    this->db->writeCode(this->emulator->get_code());
 }
 
 

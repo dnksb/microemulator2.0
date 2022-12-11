@@ -4,26 +4,7 @@ int Emulator::choise_mode()
 {
     if(this->programming_mode)
     {
-        if(this->read_mode)
-        {
-
-        }
-        else if(this->write_mode)
-        {
-
-        }
-        else if(this->f_mode)
-        {
-
-        }
-        else if(this->k_mode)
-        {
-
-        }
-        else
-        {
-
-        }
+        return 2;
     }
     else
     {
@@ -145,6 +126,19 @@ bool Emulator::get_programming_mode()
 {
     return this->programming_mode;
 }
+QString* Emulator::get_code()
+{
+    return this->code;
+}
+int Emulator::get_code_pointer()
+{
+    return this->code_pointer;
+}
+QString Emulator::get_command()
+{
+    if(this->code_pointer >= 200) this->code_pointer = 0;
+    return this->code[this->code_pointer++];
+}
 void Emulator::set_register_0 (QString value)
 {
     this->Register_0 = value;
@@ -244,6 +238,15 @@ void Emulator::set_read_mode(bool value)
 void Emulator::set_write_mode(bool value)
 {
     this->write_mode = value;
+}
+void Emulator::add_command(QString value)
+{
+    if(this->code_pointer >= 200) this->code_pointer = 0;
+    this->code[code_pointer++] = value;
+}
+void Emulator::set_code_pointer(int value)
+{
+    this->code_pointer = value;
 }
 
 Multipult::Multipult(int amount)
